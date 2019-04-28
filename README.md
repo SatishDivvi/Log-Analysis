@@ -9,9 +9,17 @@ In this project we create queries to answer below questions in order to understa
 
 ### Installation
 
- - You can either run below queries to create views in news **newsdata.sql** database or run the command `psql -d news -f create_views.sql`
 
-Enter news database by typing `psql news` and execute below queries:
+1. How to create the news database:
+   - if you provide the Vagrantfile supplied by Udacity, this step is automated by the Vagrantfile. Be sure to instruct the user to install Vagrant and VirtualBox, and instruct them on how to start and log into the virtual machine.
+   - if your instructions do not depend on the virtual machine, the user will need to manually create the news database. They can do so from the psql console by typing CREATE DATABASE news;.
+
+2. where to get the newsdata.sql file with the database schema and data.
+   - you could include a compressed (e.g. zipped) version of newsdata.sql in your repository, or include a link to where the user can download this file (recommended). This [link](https://d17h27t6h515a5.cloudfront.net/topher/2016/August/57b5f748_newsdata/newsdata.zip) should work.
+
+3. You can either run below queries to create views in news **newsdata.sql** database or run the command `psql -d news -f create_views.sql`
+4. if you chose to exclude option-3 then enter news database by typing `psql news` and execute below queries:
+
  
 ##### View 1 (Top_Viewed_Articles):
 #
