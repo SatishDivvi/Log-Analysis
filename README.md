@@ -15,8 +15,8 @@ In this project we create queries to answer below questions in order to understa
    - if your instructions do not depend on the virtual machine, the user will need to manually create the news database. They can do so from the psql console by typing CREATE DATABASE news;.
 
 2. where to get the newsdata.sql file with the database schema and data.
-   - Click the [link](https://d17h27t6h515a5.cloudfront.net/topher/2016/August/57b5f748_newsdata/newsdata.zip) to download the **newsdata.sql** file or you can download the file from my repository.
-   - Extract **newsdata.sql** file to the /vagrant folder of your VM.
+   - Click the [link](https://d17h27t6h515a5.cloudfront.net/topher/2016/August/57b5f748_newsdata/newsdata.zip) to download the zip and extract the **newsdata.sql** file or you can download the file from my repository.
+   - Move **newsdata.sql** file to the /vagrant folder of your VM.
    - Run the command `psql -d news -f newsdata.sql`
 
 3. You can create views by directly running the command `psql -d news -f create_views.sql`. _Please note that **create_views.sql** must be present in vagrant folder_.
