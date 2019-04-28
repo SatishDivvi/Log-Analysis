@@ -2,7 +2,7 @@
 
 ### Introduction:
 
-In this project we create queries to answer below questions in order to understand the behavior of the users on the news website.
+This project sets up a mock PostgreSQL database for a fictional news website. The provided Python script uses the psycopg2 library to query the database and produce a report that answers the following three questions:
    1. What are the most popular three articles of all time?
    2. Who are the most popular article authors of all time?
    3. On which days did more than 1% of requests lead to errors?
