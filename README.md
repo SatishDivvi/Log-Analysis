@@ -106,3 +106,8 @@ On which days did more than 1% of requests lead to errors?
 "Jul 17 2016" day's error count is 2.26%.
 ==========
 ```
+
+### Author
+
+Divvi Naga Venkata Satish - [Portfolio](https://satishdivvi.github.io)
+
