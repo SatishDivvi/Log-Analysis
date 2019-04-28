@@ -16,34 +16,39 @@ Please run below queries in order to create views in news **newsdata.sql** datab
 ##### View 1 (Top_Viewed_Articles):
 #
 ```
-CREATE VIEW Top_Viewed_Articles as  select articles.title, count(log.path) as articlesView from articles, log where log.path like '%' || articles.slug || '%' 
-and status = '200 OK' group by articles.title order by articlesView desc;
+CREATE VIEW Top_Viewed_Articles as  select articles.title, count(log.path) as articlesView from articles, log 
+where log.path like '%' || articles.slug || '%' and status = '200 OK' group by articles.title 
+order by articlesView desc;
 ```
 
 ##### View 2 (Top_Authors):
 #
 ```
-CREATE VIEW Top_Authors as Select authors.name, count(log.path) as articleViews from authors, articles, log where authors.id = articles.author and 
-log.path like '%' || articles.slug || '%' and status = '200 OK' group by authors.name order by articleViews desc;
+CREATE VIEW Top_Authors as Select authors.name, count(log.path) as articleViews from authors, articles, log 
+where authors.id = articles.author and log.path like '%' || articles.slug || '%' and status = '200 OK' 
+group by authors.name order by articleViews desc;
 ```
 
 ##### View 3 (total_requests):
 #
 ```
-CREATE VIEW total_requests as select date(time) as day, count(status) as requests from log group by 1 order by 1 desc;
+CREATE VIEW total_requests as select date(time) as day, count(status) as requests from log group by 1 
+order by 1 desc;
 ```
 
 ##### View 4 (total_errors):
 #
 ```
-CREATE VIEW total_errors as select date(time) as day, count(status) as errors from log where status != '200 OK' group by 1 order by 1 desc;
+CREATE VIEW total_errors as select date(time) as day, count(status) as errors from log where status != '200 OK' 
+group by 1 order by 1 desc;
 ```
 
 ##### View 5 (errors_report):
 #
 ```
-CREATE VIEW errors_report as Select total_errors.day, ROUND((100.0 * total_errors.errors / total_requests.requests),2) || '%' as totalErrorPercentage from total_errors, total_requests where 
-total_errors.day = total_requests.day order by totalErrorPercentage desc;
+CREATE VIEW errors_report as Select total_errors.day, ROUND((100.0 * total_errors.errors / total_requests.requests),2) 
+|| '%' as totalErrorPercentage from total_errors, total_requests where total_errors.day = total_requests.day 
+order by totalErrorPercentage desc;
 ```
 
 Exit the database by typing `ctrl+D`.
