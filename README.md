@@ -11,44 +11,59 @@ In this project we create queries to answer below questions in order to understa
 
 Enter news database by typing `psql news`
 
-Please run below queries in order to create views in news **newsdata.sql** database:
+ - You can either run below queries to create views in news **newsdata.sql** database or run the command `psql -d news -f create_views.sql`
 
 ##### View 1 (Top_Viewed_Articles):
 #
-```
-CREATE VIEW Top_Viewed_Articles as  select articles.title, count(log.path) as articlesView from articles, log 
-where log.path like '%' || articles.slug || '%' and status = '200 OK' group by articles.title 
-order by articlesView desc;
+```sql
+CREATE VIEW Top_Viewed_Articles AS select articles.title, count(log.path) AS articlesView 
+FROM articles, log 
+WHERE log.path = '/article/' || articles.slug 
+AND status = '200 OK' 
+GROUP BY articles.title 
+ORDER BY articlesView desc;
 ```
 
 ##### View 2 (Top_Authors):
 #
-```
-CREATE VIEW Top_Authors as Select authors.name, count(log.path) as articleViews from authors, articles, log 
-where authors.id = articles.author and log.path like '%' || articles.slug || '%' and status = '200 OK' 
-group by authors.name order by articleViews desc;
+```sql
+CREATE VIEW Top_Authors AS Select authors.name, count(log.path) AS articleViews 
+FROM authors, articles, log 
+WHERE authors.id = articles.author 
+AND log.path = '/article/' || articles.slug 
+AND status = '200 OK' 
+GROUP BY authors.name 
+ORDER BY articleViews DESC;
 ```
 
 ##### View 3 (total_requests):
 #
-```
-CREATE VIEW total_requests as select date(time) as day, count(status) as requests from log group by 1 
-order by 1 desc;
+```sql
+CREATE VIEW total_requests AS select date(time) AS day, count(status) AS requests 
+FROM log 
+GROUP BY 1 
+ORDER BY 1 DESC;
 ```
 
 ##### View 4 (total_errors):
 #
-```
-CREATE VIEW total_errors as select date(time) as day, count(status) as errors from log where status != '200 OK' 
-group by 1 order by 1 desc;
+```sql
+CREATE VIEW total_errors AS select date(time) AS day, count(status) AS errors 
+FROM log 
+WHERE status != '200 OK' 
+GROUP BY 1 
+ORDER BY 1 DESC;
 ```
 
 ##### View 5 (errors_report):
 #
-```
-CREATE VIEW errors_report as Select total_errors.day, ROUND((100.0 * total_errors.errors / total_requests.requests),2) 
-|| '%' as totalErrorPercentage from total_errors, total_requests where total_errors.day = total_requests.day 
-order by totalErrorPercentage desc;
+```sql
+CREATE VIEW errors_report AS 
+SELECT total_errors.day, ROUND((100.0 * total_errors.errors / total_requests.requests),2) 
+|| '%' AS totalErrorPercentage 
+FROM total_errors, total_requests 
+WHERE total_errors.day = total_requests.day 
+ORDER BY totalErrorPercentage DESC;
 ```
 
 Exit the database by typing `ctrl+D`.
