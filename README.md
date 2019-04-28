@@ -19,7 +19,7 @@ In this project we create queries to answer below questions in order to understa
    - Move **newsdata.sql** file to the /vagrant folder of your VM if VM is being used.
    - Run the command `psql -d news -f newsdata.sql`
 
-3. You can create views by directly running the command `psql -d news -f create_views.sql`. _Please note that **create_views.sql** must be present in vagrant folder_.
+3. You can create views by directly running the command `psql -d news -f create_views.sql`. _Please note that **create_views.sql** must be present in vagrant folder if you are using VM_.
 4. if you chose to exclude option-3 then enter news database by typing `psql news` and execute below queries:
 
  
