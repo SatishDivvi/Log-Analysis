@@ -17,7 +17,7 @@ In this project we create queries to answer below questions in order to understa
 2. where to get the newsdata.sql file with the database schema and data.
    - you could include a compressed (e.g. zipped) version of newsdata.sql in your repository, or include a link to where the user can download this file (recommended). This [link](https://d17h27t6h515a5.cloudfront.net/topher/2016/August/57b5f748_newsdata/newsdata.zip) should work.
 
-3. You can either run below queries to create views in news **newsdata.sql** database or run the command `psql -d news -f create_views.sql`
+3. You can create views by directly running the command `psql -d news -f create_views.sql`. _Please note that create_views.sql must be present in vagrant folder.
 4. if you chose to exclude option-3 then enter news database by typing `psql news` and execute below queries:
 
  
