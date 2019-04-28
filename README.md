@@ -11,10 +11,10 @@ In this project we create queries to answer below questions in order to understa
 
  - You can either run below queries to create views in news **newsdata.sql** database or run the command `psql -d news -f create_views.sql`
 
+Enter news database by typing `psql news` and execute below queries:
+ 
 ##### View 1 (Top_Viewed_Articles):
 #
-
-Enter news database by typing `psql news` and execute below queries:
 
 ```sql
 CREATE VIEW Top_Viewed_Articles AS select articles.title, count(log.path) AS articlesView 
