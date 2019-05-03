@@ -9,18 +9,31 @@ This project sets up a mock PostgreSQL database for a fictional news website. Th
 
 ### Installation
 
+1. Install Vagrant and VirtualBox:
+    - Install [Vagrant](https://www.vagrantup.com/downloads.html) and [VirtualBox](https://www.virtualbox.org/wiki/Downloads)
+    - Please fork the repository [VM Configuration](https://github.com/SatishDivvi/fullstack-nanodegree-vm) or download **Vagrantfile** from the repository.
+    - Open terminal in *Mac* or *Linux* or GitBash in *Windows*. 
 
-1. How to create the news database:
+    **Note (Windows User only):** _please install [GitBash](https://git-scm.com/downloads) if not installed._
+
+2. Configure Vagrant:
+    - Open *GitBash* and `cd` to the directory where you have installed Vagrant.
+    - Run command `vagrant up`. **Note:** _This step will take some time if executed for the first time._
+    - Run command `vagrant ssh`
+    - `cd` to folder _vagrant_ with command `cd vagrant`.
+
+3. How to create the news database:
+   - 
    - if you provide the Vagrantfile supplied by Udacity, this step is automated by the Vagrantfile. Be sure to instruct the user to install Vagrant and VirtualBox, and instruct them on how to start and log into the virtual machine.
-   - if your instructions do not depend on the virtual machine, the user will need to manually create the news database. They can do so from the psql console by typing CREATE DATABASE news;.
+   - If virtual machine is not considered by the users then they will need to manually create the news database. They can do so from the psql console by typing `CREATE DATABASE news;`.
 
-2. where to get the newsdata.sql file with the database schema and data.
+4. where to get the newsdata.sql file with the database schema and data.
    - Click the [link](https://d17h27t6h515a5.cloudfront.net/topher/2016/August/57b5f748_newsdata/newsdata.zip) to download the zip and extract the **newsdata.sql** file.
    - Move **newsdata.sql** file to the /vagrant folder of your VM if VM is being used.
    - Run the command `psql -d news -f newsdata.sql`
 
-3. You can create views by directly running the command `psql -d news -f create_views.sql`. _Please note that **create_views.sql** must be present in vagrant folder if you are using VM_.
-4. if you chose to exclude option-3 then enter news database by typing `psql news` and execute below queries:
+5. You can create views by directly running the command `psql -d news -f create_views.sql`. _Please note that **create_views.sql** must be present in vagrant folder if you are using VM._
+6. if you chose to exclude option-3 then enter news database by typing `psql news` and execute below queries:
 
  
 ##### View 1 (Top_Viewed_Articles):
