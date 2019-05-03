@@ -23,8 +23,7 @@ This project sets up a mock PostgreSQL database for a fictional news website. Th
     - `cd` to folder _vagrant_ with command `cd vagrant`.
 
 3. How to create the news database:
-   - 
-   - if you provide the Vagrantfile supplied by Udacity, this step is automated by the Vagrantfile. Be sure to instruct the user to install Vagrant and VirtualBox, and instruct them on how to start and log into the virtual machine.
+   - if you are using the Vagrantfile from the repository you have just cloned or used then this step is automated by the Vagrantfile.
    - If virtual machine is not considered by the users then they will need to manually create the news database. They can do so from the psql console by typing `CREATE DATABASE news;`.
 
 4. where to get the newsdata.sql file with the database schema and data.
