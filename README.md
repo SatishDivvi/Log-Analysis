@@ -32,7 +32,7 @@ This project sets up a mock PostgreSQL database for a fictional news website. Th
    - Run the command `psql -d news -f newsdata.sql`
 
 5. You can create views by directly running the command `psql -d news -f create_views.sql`. _Please note that **create_views.sql** must be present in vagrant folder if you are using VM._
-6. if you chose to exclude option-3 then enter news database by typing `psql news` and execute below queries:
+6. if you chose to exclude step-5 then enter news database by typing `psql news` and execute below queries:
 
  
 ##### View 1 (Top_Viewed_Articles):
